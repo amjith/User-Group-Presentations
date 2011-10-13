@@ -1,0 +1,626 @@
+\documentclass[t]{beamer}
+\usepackage{hyperref}
+
+\definecolor{rrblitbackground}{rgb}{0.55, 0.3, 0.1}
+
+\newenvironment{rtbliteral}{
+
+\begin{ttfamily}
+
+\color{rrblitbackground}
+
+}{
+
+\end{ttfamily}
+
+}
+
+\usepackage{fancyvrb}
+
+\usepackage{color}
+
+\usetheme{Warsaw}
+
+\setbeameroption{hide notes}
+
+
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\def\PY@tok@gd{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\def\PY@tok@gu{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\def\PY@tok@gt{\def\PY@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
+\def\PY@tok@gs{\let\PY@bf=\textbf}
+\def\PY@tok@gr{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\def\PY@tok@cm{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@vg{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@m{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@mh{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@go{\def\PY@tc##1{\textcolor[rgb]{0.50,0.50,0.50}{##1}}}
+\def\PY@tok@ge{\let\PY@it=\textit}
+\def\PY@tok@vc{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@il{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@cs{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@cp{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\def\PY@tok@gi{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\def\PY@tok@gh{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@ni{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\def\PY@tok@nl{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\def\PY@tok@nn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@no{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\def\PY@tok@na{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\def\PY@tok@nb{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@nd{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@ne{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\def\PY@tok@nf{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\def\PY@tok@si{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@s2{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@vi{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@nt{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@nv{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@s1{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sh{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sc{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@sx{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@bp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c1{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@kc{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@c{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\def\PY@tok@mf{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@err{\def\PY@bc##1{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{##1}}}
+\def\PY@tok@kd{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@ss{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\def\PY@tok@sr{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\def\PY@tok@mo{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kn{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@mi{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@gp{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\def\PY@tok@o{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\def\PY@tok@kr{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@s{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@kp{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@w{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\def\PY@tok@kt{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\def\PY@tok@ow{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\def\PY@tok@sb{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\def\PY@tok@k{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\def\PY@tok@se{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\def\PY@tok@sd{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+% generated by Docutils <http://docutils.sourceforge.net/>
+\usepackage{fixltx2e} % LaTeX patches, \textsubscript
+\usepackage{cmap} % fix search and cut-and-paste in Acrobat
+\usepackage{ifthen}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+
+%%% Custom LaTeX preamble
+% PDF Standard Fonts
+\usepackage{mathptmx} % Times
+\usepackage[scaled=.90]{helvet}
+\usepackage{courier}
+
+%%% User specified packages and stylesheets
+
+%%% Fallback definitions for Docutils-specific commands
+
+% titlereference role
+\providecommand*{\DUroletitlereference}[1]{\textsl{#1}}
+\hypersetup{
+  pdftitle={Python Profiling},
+  pdfauthor={Amjith Ramanujam}
+}
+
+
+%%% Body
+\begin{document}
+
+% Document title
+\title[Python Profiling]{Python Profiling%
+  \label{python-profiling}}
+\author[Amjith Ramanujam]{Amjith Ramanujam}
+\date{2011-10-13}
+\institute{Utah Python User Group}
+\maketitle
+
+% colors
+
+% ===========================
+
+% general useful commands
+
+% ===========================
+
+% closed bracket
+
+% ===========================
+
+% example block
+
+% ===========================
+
+% block
+
+% ===========================
+
+% alert block
+
+% ===========================
+
+% columns
+
+% ===========================
+
+\begin{frame}[fragile]
+\frametitle{Profiling a Python Script}
+
+
+\begin{block}{ What }
+
+Where is the time spent, when the code is running.
+
+\end{block}
+
+\pause
+
+\begin{block}{ Why? }
+\begin{itemize}
+
+\item Optimize intelligently.
+
+\item Know the bottle-necks.
+\end{itemize}
+
+\end{block}
+
+\pause
+
+\begin{block}{ How? }
+
+Python comes with a few profilers.
+\begin{itemize}
+
+\item cProfile
+
+\item Profile  (older pure python implementation)
+
+\item hotshot  (deprecated)
+\end{itemize}
+
+\end{block}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Let's use cProfile}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n+nb}{import}\PY{+w}{ }\PY{n}{cProfile}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n+nb}{import}\PY{+w}{ }\PY{n}{lcm}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{cProfile}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{l+s}{'lcm.ver\PYZus{}1(2,}\PY{+w}{ }\PY{l+s}{3)'}\PY{p}{)}
+\PY{l+m+mi}{6}\PY{+w}{ }\PY{n}{function}\PY{+w}{ }\PY{n}{calls}\PY{+w}{ }\PY{n}{in}\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{n}{seconds}
+
+\PY{n}{Ordered}\PY{+w}{ }\PY{n}{by:}\PY{+w}{ }\PY{n}{standard}\PY{+w}{ }\PY{n}{name}
+\PY{n}{ncalls}\PY{+w}{ }\PY{+w}{ }\PY{n}{tottime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{+w}{ }\PY{n}{cumtime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{n}{filename:lineno}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{l+s+sr}{<string>}\PY{p}{:}\PY{l+m+mi}{1}\PY{p}{(}\PY{l+s+sr}{<module>}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{n}{lcm}\PY{o}{.}\PY{n}{py:1}\PY{p}{(}\PY{n}{ver\PYZus{}1}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{2}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{max}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{l+s}{'\PYZus{}lsprof.Profiler'}\PY{+w}{ }\PY{n}{objects}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{min}\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lowest Common Multiplier}
+
+
+\textbf{Problem}
+
+Given two numbers a,b find the lowest number c that is divisible by both a and b.
+
+\pause
+
+\textbf{Algorithm:}
+\setbeamerfont{quote}{parent={}}
+%
+\begin{quote}{\ttfamily \raggedright \noindent
+1.~Start~i~from~the~max(a,b)\\
+2.~If~i~is~perfectly~divisible~by~a~and~b\\
+~~~~i~is~the~answer\\
+3.~Increment~i~by~max(a,b).~Goto~Step~1.
+}
+\end{quote}
+\setbeamerfont{quote}{parent=quotation}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lowest Common Multiplier (ver 1)}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{}}\PY{+w}{ }\PY{c}{lcm.py}
+\PY{k}{def}\PY{+w}{ }\PY{n+nf}{ver\PYZus{}1}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n+nb}{max}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{while}\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{<}\PY{+w}{ }\PY{p}{(}\PY{n}{arg1}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{if}\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{\PYZpc{}}\PY{+w}{ }\PY{n+nb}{min}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{n}{arg2}\PY{p}{)}\PY{+w}{ }\PY{o}{==}\PY{+w}{ }\PY{l+m+mi}{0}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{return}\PY{+w}{ }\PY{n}{i}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{+}\PY{o}{=}\PY{+w}{ }\PY{n+nb}{max}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{n}{arg2}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{return}\PY{p}{(}\PY{n}{arg1}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Let's Profile (ver 1)}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{cProfile}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{l+s}{'lcm.ver\PYZus{}1(21498497,}\PY{+w}{ }\PY{l+s}{38901201)'}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{42996996}\PY{+w}{ }\PY{n}{function}\PY{+w}{ }\PY{n}{calls}\PY{+w}{ }\PY{n}{in}\PY{+w}{ }\PY{l+m+mf}{25.478}\PY{+w}{ }\PY{n}{seconds}
+
+\PY{+w}{ }\PY{+w}{ }\PY{n}{Ordered}\PY{+w}{ }\PY{n}{by:}\PY{+w}{ }\PY{n}{standard}\PY{+w}{ }\PY{n}{name}
+
+\PY{+w}{ }\PY{+w}{ }\PY{n}{ncalls}\PY{+w}{ }\PY{+w}{ }\PY{n}{tottime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{+w}{ }\PY{n}{cumtime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{n}{filename:lineno}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{25.478}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{25.478}\PY{+w}{ }\PY{l+s+sr}{<string>}\PY{p}{:}\PY{l+m+mi}{1}\PY{p}{(}\PY{l+s+sr}{<module>}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{16.358}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{16.358}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{25.478}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{25.478}\PY{+w}{ }\PY{n}{lcm}\PY{o}{.}\PY{n}{py:1}\PY{p}{(}\PY{n}{ver\PYZus{}1}\PY{p}{)}
+\PY{l+m+mi}{21498497}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.583}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.583}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{max}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{l+s}{'\PYZus{}lsprof.Profiler'}\PY{+w}{ }\PY{n}{objects}\PY{p}{\PYZcb{}}
+\PY{l+m+mi}{21498496}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.537}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.537}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{min}\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lowest Common Multiplier (ver 2)}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{}}\PY{+w}{ }\PY{c}{lcm.py}
+\PY{k}{def}\PY{+w}{ }\PY{n+nf}{ver\PYZus{}2}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{mx}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n+nb}{max}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{mn}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n+nb}{min}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{mx}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{while}\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{<}\PY{+w}{ }\PY{p}{(}\PY{n}{arg1}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{if}\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{\PYZpc{}}\PY{+w}{ }\PY{n}{mn}\PY{+w}{ }\PY{o}{==}\PY{+w}{ }\PY{l+m+mi}{0}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{return}\PY{+w}{ }\PY{n}{i}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{+}\PY{o}{=}\PY{+w}{ }\PY{n}{mx}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{return}\PY{p}{(}\PY{n}{arg1}\PY{+w}{ }\PY{o}{*}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Let's Profile (ver 2)}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{cProfile}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{l+s}{'lcm.ver\PYZus{}2(21498497,}\PY{+w}{ }\PY{l+s}{38901201)'}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{5}\PY{+w}{ }\PY{n}{function}\PY{+w}{ }\PY{n}{calls}\PY{+w}{ }\PY{n}{in}\PY{+w}{ }\PY{l+m+mf}{5.889}\PY{+w}{ }\PY{n}{seconds}
+
+\PY{n}{Ordered}\PY{+w}{ }\PY{n}{by:}\PY{+w}{ }\PY{n}{standard}\PY{+w}{ }\PY{n}{name}
+
+\PY{n}{ncalls}\PY{+w}{ }\PY{+w}{ }\PY{n}{tottime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{+w}{ }\PY{n}{cumtime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{n}{filename:lineno}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.889}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.889}\PY{+w}{ }\PY{l+s+sr}{<string>}\PY{p}{:}\PY{l+m+mi}{1}\PY{p}{(}\PY{l+s+sr}{<module>}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.889}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.889}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.889}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.889}\PY{+w}{ }\PY{n}{lcm}\PY{o}{.}\PY{n}{py:9}\PY{p}{(}\PY{n}{ver\PYZus{}2}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{max}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{l+s}{'\PYZus{}lsprof.Profiler'}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{min}\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Lowest Common Multiplier (ver 3)}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{c}{\PYZsh{}}\PY{+w}{ }\PY{c}{lcm.py}
+\PY{k}{def}\PY{+w}{ }\PY{n+nf}{ver\PYZus{}3}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{mx}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n+nb}{max}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{mn}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n+nb}{min}\PY{p}{(}\PY{n}{arg1}\PY{p}{,}\PY{+w}{ }\PY{n}{arg2}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{mx}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{mx\PYZus{}limit}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{arg1}\PY{o}{*}\PY{n}{arg2}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{while}\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{<}\PY{+w}{ }\PY{n}{mx\PYZus{}limit}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{if}\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{\PYZpc{}}\PY{+w}{ }\PY{n}{mn}\PY{+w}{ }\PY{o}{==}\PY{+w}{ }\PY{l+m+mi}{0}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{return}\PY{+w}{ }\PY{n}{i}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{i}\PY{+w}{ }\PY{o}{+}\PY{o}{=}\PY{+w}{ }\PY{n}{mx}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{return}\PY{+w}{ }\PY{n}{mx\PYZus{}limit}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Let's Profile (ver 3)}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{cProfile}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{l+s}{'lcm.ver\PYZus{}3(21498497,}\PY{+w}{ }\PY{l+s}{38901201)'}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{5}\PY{+w}{ }\PY{n}{function}\PY{+w}{ }\PY{n}{calls}\PY{+w}{ }\PY{n}{in}\PY{+w}{ }\PY{l+m+mf}{5.232}\PY{+w}{ }\PY{n}{seconds}
+
+\PY{n}{Ordered}\PY{+w}{ }\PY{n}{by:}\PY{+w}{ }\PY{n}{standard}\PY{+w}{ }\PY{n}{name}
+
+\PY{n}{ncalls}\PY{+w}{ }\PY{+w}{ }\PY{n}{tottime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{+w}{ }\PY{n}{cumtime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{n}{filename:lineno}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.232}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.232}\PY{+w}{ }\PY{l+s+sr}{<string>}\PY{p}{:}\PY{l+m+mi}{1}\PY{p}{(}\PY{l+s+sr}{<module>}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.232}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.232}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.232}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{5.232}\PY{+w}{ }\PY{n}{lcm}\PY{o}{.}\PY{n}{py:19}\PY{p}{(}\PY{n}{ver\PYZus{}3}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{max}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{l+s}{'\PYZus{}lsprof.Profiler'}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{min}\PY{p}{\PYZcb{}}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Profile from Command Line}
+
+
+Profiling a whole script.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nv}{\PYZdl{}}\PY{+w}{ }\PY{n+nv}{python}\PY{+w}{ }\PY{o}{-}\PY{n}{m}\PY{+w}{ }\PY{n}{cProfile}\PY{+w}{ }\PY{n}{script}\PY{o}{.}\PY{n}{py}
+
+\PY{l+m+mi}{291502}\PY{+w}{ }\PY{n}{function}\PY{+w}{ }\PY{n}{calls}\PY{+w}{ }\PY{p}{(}\PY{l+m+mi}{291393}\PY{+w}{ }\PY{n}{primitive}\PY{+w}{ }\PY{n}{calls}\PY{p}{)}\PY{+w}{ }\PY{n}{in}\PY{+w}{ }\PY{l+m+mf}{4.368}\PY{+w}{ }\PY{n}{seconds}
+
+\PY{n}{Ordered}\PY{+w}{ }\PY{n}{by:}\PY{+w}{ }\PY{n}{standard}\PY{+w}{ }\PY{n}{name}
+
+\PY{n}{ncalls}\PY{+w}{ }\PY{+w}{ }\PY{n}{tottime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{+w}{ }\PY{n}{cumtime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{n}{filename:lineno}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{n}{UserDict}\PY{o}{.}\PY{n}{py:4}\PY{p}{(}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{o}{.}\PY{n}{py:1077}\PY{p}{(}\PY{n}{Logger}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{o}{.}\PY{n}{py:1092}\PY{p}{(}\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{n}{\PYZus{}\PYZus{}init\PYZus{}\PYZus{}}\PY{o}{.}\PY{n}{py:1122}\PY{p}{(}\PY{n}{info}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{o}{...}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{o}{...}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Save and Analyze Profiles}
+
+
+\textbf{Problem:}
+\begin{itemize}
+
+\item Small functions are easy to profile in the repl.
+
+\item Profiles of bigger programs are messy.
+
+\item Sorting by function name is useless.
+\end{itemize}
+
+\textbf{Solution:}
+\begin{itemize}
+
+\item Save the profile to a file.
+
+\item Reload the profile and analyze the stats on the profile.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Save the Profile}
+
+
+Let's save the profile to a file.
+
+\textbf{Interpreter:}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{cProfile}\PY{o}{.}\PY{n}{run}\PY{p}{(}\PY{l+s}{'lcm.ver\PYZus{}3(21498497,}\PY{+w}{ }\PY{l+s}{38901201)'}\PY{p}{,}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+s}{'lcm.prof'}\PY{p}{)}
+\end{Verbatim}
+
+
+\textbf{Command Line:}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nv}{\PYZdl{}}\PY{+w}{ }\PY{n+nv}{python}\PY{+w}{ }\PY{o}{-}\PY{n}{m}\PY{+w}{ }\PY{n}{cProfile}\PY{+w}{ }\PY{o}{-}\PY{n}{o}\PY{+w}{ }\PY{n}{script}\PY{o}{.}\PY{n}{prof}\PY{+w}{ }\PY{n}{script}\PY{o}{.}\PY{n}{py}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Analyze the Profile}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n+nb}{import}\PY{+w}{ }\PY{n}{pstats}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{p}\PY{+w}{ }\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{pstats}\PY{o}{.}\PY{n}{Stats}\PY{p}{(}\PY{l+s}{'script.prof'}\PY{p}{)}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{p}\PY{o}{.}\PY{n}{sort\PYZus{}stats}\PY{p}{(}\PY{l+s}{'cumulative'}\PY{p}{)}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{p}\PY{o}{.}\PY{n}{print\PYZus{}stats}\PY{p}{(}\PY{l+m+mi}{5}\PY{p}{)}
+
+\PY{l+m+mi}{402649}\PY{+w}{ }\PY{n}{function}\PY{+w}{ }\PY{n}{calls}\PY{+w}{ }\PY{p}{(}\PY{l+m+mi}{402540}\PY{+w}{ }\PY{n}{primitive}\PY{+w}{ }\PY{n}{calls}\PY{p}{)}\PY{+w}{ }\PY{n}{in}\PY{+w}{ }\PY{l+m+mf}{4.173}\PY{+w}{ }\PY{n}{seconds}
+\PY{n}{Ordered}\PY{+w}{ }\PY{n}{by:}\PY{+w}{ }\PY{n}{cumulative}\PY{+w}{ }\PY{n+nb}{time}
+\PY{n}{List}\PY{+w}{ }\PY{n}{reduced}\PY{+w}{ }\PY{n}{from}\PY{+w}{ }\PY{l+m+mi}{72}\PY{+w}{ }\PY{n}{to}\PY{+w}{ }\PY{l+m+mi}{5}\PY{+w}{ }\PY{n}{due}\PY{+w}{ }\PY{n}{to}\PY{+w}{ }\PY{n}{restriction}\PY{+w}{ }\PY{l+s+sr}{<5>}
+
+\PY{n}{ncalls}\PY{+w}{ }\PY{+w}{ }\PY{n}{tottime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{+w}{ }\PY{n}{cumtime}\PY{+w}{ }\PY{+w}{ }\PY{n}{percall}\PY{+w}{ }\PY{n}{filename:lineno}\PY{p}{(}\PY{n}{function}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.009}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.009}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.173}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.173}\PY{+w}{ }\PY{n}{log\PYZus{}profiler}\PY{o}{.}\PY{n}{py:33}\PY{p}{(}\PY{l+s+sr}{<module>}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.161}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{4.161}\PY{+w}{ }\PY{n}{log\PYZus{}profiler}\PY{o}{.}\PY{n}{py:379}\PY{p}{(}\PY{n}{main}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{3.596}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{3.596}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{3.716}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{3.716}\PY{+w}{ }\PY{n}{log\PYZus{}profiler}\PY{o}{.}\PY{n}{py:276}\PY{p}{(}\PY{n}{ParseDie}\PY{p}{)}
+\PY{l+m+mi}{249139}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.334}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.334}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.000}\PY{+w}{ }\PY{p}{\PYZob{}}\PY{n}{built}\PY{o}{-}\PY{n}{in}\PY{+w}{ }\PY{n}{method}\PY{+w}{ }\PY{n}{search}\PY{p}{\PYZcb{}}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mi}{1}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.114}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.114}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.281}\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+m+mf}{0.281}\PY{+w}{ }\PY{n}{log\PYZus{}profiler}\PY{o}{.}\PY{n}{py:213}\PY{p}{(}\PY{n}{TrendSeriesParser}\PY{p}{)}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{GUI Profile Viewer}
+
+
+\DUroletitlereference{runsnakerun}
+\begin{itemize}
+
+\item A GUI viewer for python profiles
+
+\item Shows the bigger picture
+
+\item Requires wxPython
+\end{itemize}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n+nv}{\PYZdl{}}\PY{+w}{ }\PY{n+nv}{pip}\PY{+w}{ }\PY{n}{install}\PY{+w}{ }\PY{+w}{ }\PY{n}{SquareMap}\PY{+w}{ }\PY{n}{RunSnakeRun}
+
+\PY{n+nv}{\PYZdl{}}\PY{+w}{ }\PY{n+nv}{runsnake}\PY{+w}{ }\PY{n}{script}\PY{o}{.}\PY{n}{prof}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Smart Optimization}
+
+
+\noindent\makebox[\textwidth][c]{\includegraphics[height=0.75\textheight]{runsnake.png}}
+
+Clearly shows which parts are worth optimizing.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Profiling Decorator}
+
+\begin{itemize}
+
+\item Hide the profiling in a decorator.
+
+\item Useful for profiling a single function in a module.
+\end{itemize}
+
+\textbf{https://gist.github.com/1283366}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Using Profiling Decorator}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{from}\PY{+w}{ }\PY{n}{profile\PYZus{}func}\PY{+w}{ }\PY{n+nb}{import}\PY{+w}{ }\PY{n}{profile\PYZus{}func}
+
+\PY{n+nv}{@}\PY{n+nv}{profile\PYZus{}func}\PY{p}{(}\PY{p}{)}
+\PY{n}{def}\PY{+w}{ }\PY{n}{ParseDie}\PY{p}{(}\PY{n}{self}\PY{p}{,}\PY{+w}{ }\PY{n}{inpFile}\PY{p}{,}\PY{+w}{ }\PY{n}{XY}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{None}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{if}\PY{+w}{ }\PY{o+ow}{not}\PY{+w}{ }\PY{n}{XY:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{XY}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{self}\PY{o}{.}\PY{n}{DieXY}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{else}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{self}\PY{o}{.}\PY{n}{DieXY}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{XY}
+\PY{o}{...}\PY{o}{.}
+
+\PY{n+nv}{\PYZdl{}}\PY{+w}{ }\PY{n+nv}{ls}\PY{+w}{ }\PY{o}{\PYZbs{}}\PY{o}{*}\PY{o}{.}\PY{n}{profile}
+\PY{n}{ParseDie\PYZus{}func}\PY{o}{.}\PY{n}{profile}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Micro Benchmarks with timeit}
+
+\begin{itemize}
+
+\item \DUroletitlereference{timeit} module is used to profile individual statements or blocks in the code.
+
+\item Runs the code multiple times to collect more data points.
+
+\item Resilient to OS noise.
+\end{itemize}
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n+nb}{import}\PY{+w}{ }\PY{n}{timeit}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{t}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{timeit}\PY{o}{.}\PY{n}{Timer}\PY{p}{(}\PY{l+s}{'4000*234'}\PY{p}{)}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{t}\PY{o}{.}\PY{n}{timeit}\PY{p}{(}\PY{l+m+mi}{1000}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{1000}
+\PY{l+m+mf}{6.198883056640625e-08}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{t}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{timeit}\PY{o}{.}\PY{n}{Timer}\PY{p}{(}\PY{l+s}{'lcm.ver\PYZus{}1(2000,3000)'}\PY{p}{,}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{l+s}{'import}\PY{+w}{ }\PY{l+s}{lcm'}\PY{p}{)}
+\PY{o}{>>}\PY{o}{>}\PY{+w}{ }\PY{n}{t}\PY{o}{.}\PY{n}{timeit}\PY{p}{(}\PY{l+m+mi}{10000}\PY{p}{)}\PY{o}{/}\PY{l+m+mi}{10000}
+\PY{l+m+mf}{2.10111114120483397e-06}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Micro Benchmark}
+
+
+Let's say we'd like to time a http request.
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{conn}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{httplib}\PY{o}{.}\PY{n}{HTTPConnection}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{google.com}\PY{l+s}{'}\PY{p}{)}
+\PY{n}{conn}\PY{o}{.}\PY{n}{request}\PY{p}{(}\PY{l+s}{'}\PY{l+s}{GET}\PY{l+s}{'}\PY{p}{,}\PY{+w}{ }\PY{l+s}{'}\PY{l+s}{/}\PY{l+s}{'}\PY{p}{)}
+\end{Verbatim}
+
+
+We want to do it in code instead of REPL.
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Micro Benchmark using Context Manager}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+\PY{n}{with}\PY{+w}{ }\PY{n}{Timer}\PY{p}{(}\PY{p}{)}\PY{+w}{ }\PY{n}{as}\PY{+w}{ }\PY{n}{t:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{conn}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{httplib}\PY{o}{.}\PY{n}{HTTPConnection}\PY{p}{(}\PY{l+s}{'google.com'}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{conn}\PY{o}{.}\PY{n}{request}\PY{p}{(}\PY{l+s}{'GET'}\PY{p}{,}\PY{+w}{ }\PY{l+s}{'/'}\PY{p}{)}
+\PY{k}{print}\PY{p}{(}\PY{l+s}{'Request}\PY{+w}{ }\PY{l+s}{took}\PY{+w}{ }\PY{l+s}{\PYZpc{}.03f}\PY{+w}{ }\PY{l+s}{sec.'}\PY{+w}{ }\PY{n+nv}{\PYZpc{}}\PY{+w}{ }\PY{n+nv}{t}\PY{o}{.}\PY{n}{interval}\PY{p}{)}
+
+\PY{n+nb}{import}\PY{+w}{ }\PY{n}{timeit}
+\PY{n}{class}\PY{+w}{ }\PY{n}{Timer:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{def}\PY{+w}{ }\PY{n}{\PYZus{}\PYZus{}enter\PYZus{}\PYZus{}}\PY{p}{(}\PY{n}{self}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{self}\PY{o}{.}\PY{n}{start}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{timeit}\PY{o}{.}\PY{n}{default\PYZus{}timer}\PY{p}{(}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{k}{return}\PY{+w}{ }\PY{n}{self}
+
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{def}\PY{+w}{ }\PY{n}{\PYZus{}\PYZus{}exit\PYZus{}\PYZus{}}\PY{p}{(}\PY{n}{self}\PY{p}{,}\PY{+w}{ }\PY{o}{*}\PY{n}{args}\PY{p}{)}\PY{p}{:}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{self}\PY{o}{.}\PY{n}{end}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{timeit}\PY{o}{.}\PY{n}{default\PYZus{}timer}\PY{p}{(}\PY{p}{)}
+\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{+w}{ }\PY{n}{self}\PY{o}{.}\PY{n}{interval}\PY{+w}{ }\PY{o}{=}\PY{+w}{ }\PY{n}{self}\PY{o}{.}\PY{n}{end}\PY{+w}{ }\PY{o}{-}\PY{+w}{ }\PY{n}{self}\PY{o}{.}\PY{n}{start}
+\end{Verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Acknowledgements}
+
+\begin{itemize}
+
+\item Stephen Mcquay
+\begin{itemize}
+
+\item Introducing runsnakerun
+\end{itemize}
+
+\item Seth House
+\begin{itemize}
+
+\item rst2beamer help
+\end{itemize}
+
+\item Decorator Idea:
+\url{https://translate.svn.sourceforge.net/svnroot/translate/src/trunk/virtaal/devsupport/profiling.py}
+
+\item Context Manager Code:
+\url{http://code.activestate.com/recipes/577896/}
+\end{itemize}
+
+\textbf{Questions?}
+\end{frame}
+
+\end{document}
