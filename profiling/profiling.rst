@@ -354,10 +354,10 @@ Micro Benchmark using Context Manager
 Acknowledgements
 ----------------
 
-- Stephen Mcquay 
+- Stephen McQuay (@smcquay)
 
   - Introducing runsnakerun
-- Seth House 
+- Seth House (@whiteinge)
 
   - rst2beamer help
 - Decorator Idea:
