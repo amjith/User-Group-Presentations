@@ -4,7 +4,7 @@
 Tools
 -----
 
-* rst2beamer (required docutils).
+* rst2beamer (requires docutils).
 * pdflatex (Part of Mactex package).
-* Makefile (Usually requires some tweaking to adjust the path).
+* Makefile (may need some tweaking to adjust the program paths).
 
