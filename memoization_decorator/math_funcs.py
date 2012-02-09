@@ -3,19 +3,13 @@ from math import sqrt
 
 @memoized
 def mfibonacci(num):
-    print 'fibonacci(%d)'%num
-    if num == 0:
-        return 0
-    elif num ==1:
-        return 1
+    if num in (0,1):
+        return num
     return mfibonacci(num-1) + mfibonacci(num-2)
 
 def fibonacci(num):
-    print 'fibonacci(%d)' %num
-    if num == 0:
-        return 0
-    elif num ==1:
-        return 1
+    if num in (0,1):
+        return num
     return fibonacci(num-1) + fibonacci(num-2)
 
 def power_of(x,y,z):
