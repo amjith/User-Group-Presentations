@@ -7,19 +7,20 @@ def memoized(func):
     cache = {}
 
     @functools.wraps(func)
-    def memoizer(*args, **keywords):
-        keywords = tuple(sorted(keywords.iteritems()))
+    def memoizer(*args, **kwargs):
+        keywords = tuple(sorted(kwargs.iteritems()))
         key = (args, keywords)
         try:
             return cache[key]
         except KeyError:
-            value = func(*args, **keywords)
+            value = func(*args, **kwargs)
             cache[key] = value
             return value
         except TypeError:
             # uncachable -- for instance, passing a list as an argument.
             # Better to not cache than to blow up entirely.
-            return func(*args, **keywords)
+            return func(*args, **kwargs)
 
     memoizer.cache = cache
+    return memoizer
 
