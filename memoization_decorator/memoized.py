@@ -8,8 +8,7 @@ def memoized(func):
 
     @functools.wraps(func)
     def memoizer(*args, **kwargs):
-        #keywords = tuple(sorted(kwargs.iteritems()))
-        keywords = tuple(kwargs.iteritems())
+        keywords = tuple(sorted(kwargs.iteritems()))
         key = (args, keywords)
         try:
             return cache[key]
